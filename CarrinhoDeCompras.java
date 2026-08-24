@@ -29,6 +29,9 @@ public class CarrinhoDeCompras {
     }
 
     public double calcularValorTotal() {
-        return itens.stream().mapToDouble(item -> item.getPreco() * item.getQuantidade()).sum();
+        double valorBruto = itens.stream().mapToDouble(item -> item.getPreco() * item.getQuantidade()).sum();
+
+        double valorLiquido = valorBruto * 0.9;
+        return valorLiquido;
     }
 }
