@@ -79,4 +79,16 @@ public class CarrinhoDeComprasTest {
         assertEquals(35.00, valorTotal, 0.01);
     }
 
+    @Test
+    public void testDeveCalcularValorDaCompraComDescontoQuandoValorBrutoForMaiorQue500() {
+        CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
+        Item item1 = new Item("Produto A", 100.00, 6);
+
+        carrinho.adicionarItem(item1);
+
+        double valorTotal = carrinho.calcularValorTotal();
+
+        assertEquals(540.00, valorTotal, 0.01);
+    }
+
 }
