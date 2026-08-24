@@ -31,7 +31,10 @@ public class CarrinhoDeCompras {
     public double calcularValorTotal() {
         double valorBruto = itens.stream().mapToDouble(item -> item.getPreco() * item.getQuantidade()).sum();
 
-        double valorLiquido = valorBruto * 0.9;
-        return valorLiquido;
+        if (valorBruto > 500) {
+            return valorBruto * 0.9;
+        }
+
+        return valorBruto;
     }
 }
