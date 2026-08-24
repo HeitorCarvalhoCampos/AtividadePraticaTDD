@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class CarrinhoDeCompras {
 
     private List<Item> itens;
@@ -28,13 +31,25 @@ public class CarrinhoDeCompras {
         return itens;
     }
 
-    public double calcularValorTotal() {
+    // public double calcularValorTotal() {
+    // double valorBruto = itens.stream().mapToDouble(item -> item.getPreco() *
+    // item.getQuantidade()).sum();
+
+    // if (valorBruto > 500) {
+    // return valorBruto * 0.9;
+    // }
+
+    // return valorBruto;
+    // }
+
+    // Função específica para retornar valor total bruto e liquido
+    public List<Double> calcularValorTotal() {
         double valorBruto = itens.stream().mapToDouble(item -> item.getPreco() * item.getQuantidade()).sum();
 
         if (valorBruto > 500) {
-            return valorBruto * 0.9;
+            return List.of(valorBruto, valorBruto * 0.9);
         }
 
-        return valorBruto;
+        return List.of(valorBruto, valorBruto);
     }
 }
