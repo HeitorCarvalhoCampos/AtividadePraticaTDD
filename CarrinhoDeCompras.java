@@ -27,4 +27,8 @@ public class CarrinhoDeCompras {
     public List<Item> getItens() {
         return itens;
     }
+
+    public double calcularValorTotal() {
+        return itens.stream().mapToDouble(item -> item.getPreco() * item.getQuantidade()).sum();
+    }
 }
