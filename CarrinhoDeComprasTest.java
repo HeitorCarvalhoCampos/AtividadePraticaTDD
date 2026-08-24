@@ -64,4 +64,19 @@ public class CarrinhoDeComprasTest {
             carrinho.removerItem(item);
         });
     }
+
+    @Test
+    public void testDeveCalcularValorDaCompra() {
+        CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
+        Item item1 = new Item("Produto A", 10.00, 2);
+        Item item2 = new Item("Produto B", 15.00, 1);
+
+        carrinho.adicionarItem(item1);
+        carrinho.adicionarItem(item2);
+
+        double valorTotal = carrinho.calcularValorTotal();
+
+        assertEquals(35.00, valorTotal, 0.01);
+    }
+
 }
