@@ -65,6 +65,8 @@ public class CarrinhoDeComprasTest {
         });
     }
 
+    // Testes para antigo formato de função calcularValorTotal() que retorna valor
+    // bruto ou liquido
     // @Test
     // public void testDeveCalcularValorDaCompra() {
     // CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
@@ -98,13 +100,12 @@ public class CarrinhoDeComprasTest {
     public void testDeveCalcularValorDaCompra() {
         CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
         Item item1 = new Item("Produto A", 10.00, 2);
-        Item item2 = new Item("Produto B", 5.00, 5);
+        Item item2 = new Item("Produto B", 15.00, 1);
 
         carrinho.adicionarItem(item1);
         carrinho.adicionarItem(item2);
 
-        double valorEsperado = 45;
-
+        double valorEsperado = 35;
         assertEquals(valorEsperado, carrinho.calcularValorTotal().get(0), 0.01);
         assertEquals(valorEsperado, carrinho.calcularValorTotal().get(1), 0.01);
     }
@@ -119,8 +120,7 @@ public class CarrinhoDeComprasTest {
         carrinho.adicionarItem(item2);
 
         double valorBruto = 1200;
-        double valorLiquido = 1080; // 10% de desconto
-
+        double valorLiquido = 1080;
         assertEquals(valorBruto, carrinho.calcularValorTotal().get(0), 0.01);
         assertEquals(valorLiquido, carrinho.calcularValorTotal().get(1), 0.01);
     }
